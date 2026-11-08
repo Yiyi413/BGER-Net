@@ -10,7 +10,7 @@ Lichao Su, Yucheng Yi, Kun Zou, Shiyan Tu
 
 ## Datasets
 
-Training: [tampCOCO](https://www.kaggle.com/datasets/qsii24/tampcoco).
+Training: [tampCOCO](https://www.kaggle.com/datasets/qsii24/tampcoco). Released by the [CAT-Net authors](https://github.com/mjkwon2021/CAT-Net#training), tampCOCO is a synthetic image-forgery dataset with pixel-level manipulation masks. We use it to train the model for image manipulation localization.
 
 Testing:
 
