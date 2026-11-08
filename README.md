@@ -21,7 +21,7 @@ Testing:
 
 Place the downloaded datasets under `data/` and set `TRAIN_ROOTS` and `GENERALIZATION_ROOTS` in `train_bger.py` to their extracted locations. Each dataset must use the Owl v1 layout: `tp/` for images, `gt/` for masks, and a `<dataset-folder-name>.json` manifest containing `tp`/`gt` filename pairs. The training pipeline uses [Owl](https://github.com/aikwen/owl), which is included in this repository.
 
-## Training and testing
+## Training
 
 Install PyTorch for your system, then install the remaining dependencies:
 
@@ -29,10 +29,10 @@ Install PyTorch for your system, then install the remaining dependencies:
 pip install timm albumentations numpy pillow matplotlib
 ```
 
-Place a pretrained ConvNeXt-Tiny checkpoint at `pretrained/ConvNeXt-Tiny.pth` and run:
+Prepare the datasets as described above and place a pretrained ConvNeXt-Tiny checkpoint at `pretrained/ConvNeXt-Tiny.pth`. From the repository root, run:
 
 ```bash
 python train_bger.py
 ```
 
-The script trains BGER-Net on tampCOCO and evaluates it on the four test datasets after each epoch, without target-dataset fine-tuning. Checkpoints and F1/AUC results are saved under `runs/bger/`.
+To use a checkpoint at another location, pass `--backbone-checkpoint PATH`. To continue an interrupted run, pass `--resume PATH` with a saved training checkpoint. Run `python train_bger.py --help` for the available options.
