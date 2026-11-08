@@ -23,10 +23,10 @@ Place the downloaded datasets under `data/` and set `TRAIN_ROOTS` and `GENERALIZ
 
 ## Training
 
-Install PyTorch for your system, then install the remaining dependencies:
+Install PyTorch for your system, then install the project dependencies:
 
 ```bash
-pip install timm albumentations numpy pillow matplotlib
+pip install -r requirements.txt
 ```
 
 Prepare the datasets as described above and place a pretrained ConvNeXt-Tiny checkpoint at `pretrained/ConvNeXt-Tiny.pth`. From the repository root, run:
