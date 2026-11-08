@@ -10,7 +10,7 @@ Lichao Su, Yucheng Yi, Kun Zou, Shiyan Tu
 
 ## Datasets
 
-Training: [tampCOCO](https://www.kaggle.com/datasets/qsii24/tampcoco) (use the selected splicing and copy-move subsets).
+Training: [tampCOCO](https://www.kaggle.com/datasets/qsii24/tampcoco).
 
 Testing:
 
