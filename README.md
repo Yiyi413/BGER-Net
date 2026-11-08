@@ -1,6 +1,12 @@
 # BGER-Net
 
-Code for **BGER-Net: A Lightweight Boundary-Guided Evidence Routing Network for Image Manipulation Localization**.
+This repository contains the code for our paper:
+
+### BGER-Net: A Lightweight Boundary-Guided Evidence Routing Network for Image Manipulation Localization
+
+Lichao Su, Yucheng Yi, Kun Zou, Shiyan Tu
+
+![Overview of BGER-Net](model.png)
 
 ## Datasets
 
