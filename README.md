@@ -19,7 +19,29 @@ Testing:
 - [COVERAGE](https://github.com/wenbihan/coverage) (author's dataset page)
 - [NIST16](https://mfc.nist.gov/) (official NIST portal; registration and a data-use agreement may be required)
 
-Place the downloaded datasets under `data/` and set `TRAIN_ROOTS` and `GENERALIZATION_ROOTS` in `train_bger.py` to their extracted locations. Each dataset must use the Owl v1 layout: `tp/` for images, `gt/` for masks, and a `<dataset-folder-name>.json` manifest containing `tp`/`gt` filename pairs. The training pipeline uses [Owl](https://github.com/aikwen/owl), which is included in this repository.
+The default paths in `train_bger.py` expect the following folders under `data/`. The first three are tampCOCO training subsets; change `TRAIN_ROOTS` and `GENERALIZATION_ROOTS` if your extracted folders use different names.
+
+```text
+data/
+  bcm_coco30000/
+  cm_coco30000/
+  sp_coco30000/
+  nist16/
+  columbia/
+  coverage/
+  casia_v1/
+```
+
+Each folder uses the [Owl](https://github.com/aikwen/owl) v1 layout: `tp/` contains images, `gt/` contains masks, and `<folder-name>.json` lists matching filenames. For example, `data/casia_v1/casia_v1.json` can contain:
+
+```json
+[
+  {"tp": "tampered.jpg", "gt": "tampered.png"},
+  {"tp": "authentic.jpg", "gt": ""}
+]
+```
+
+The corresponding files are `tp/tampered.jpg`, `gt/tampered.png`, and `tp/authentic.jpg`; an empty `gt` denotes an authentic image. Owl is included in this repository.
 
 ## Training
 
@@ -29,7 +51,7 @@ Install PyTorch for your system, then install the project dependencies:
 pip install -r requirements.txt
 ```
 
-Prepare the datasets as described above and place a pretrained ConvNeXt-Tiny checkpoint at `pretrained/ConvNeXt-Tiny.pth`. From the repository root, run:
+Prepare the datasets as described above. A timm-compatible ImageNet-1K pretrained checkpoint is available from the [timm ConvNeXt-Tiny model page](https://huggingface.co/timm/convnext_tiny.fb_in1k/blob/main/pytorch_model.bin); download its `pytorch_model.bin` and place it at `pretrained/ConvNeXt-Tiny.pth`. From the repository root, run:
 
 ```bash
 python train_bger.py
