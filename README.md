@@ -19,20 +19,18 @@ Testing:
 - [COVERAGE](https://github.com/wenbihan/coverage) (author's dataset page)
 - [NIST16](https://mfc.nist.gov/) (official NIST portal; registration and a data-use agreement may be required)
 
-The default paths in `train_bger.py` expect the following folders under `data/`. The first three are tampCOCO training subsets; change `TRAIN_ROOTS` and `GENERALIZATION_ROOTS` if your extracted folders use different names.
+An example dataset organization is shown below. Before training, set `TRAIN_ROOTS` and `GENERALIZATION_ROOTS` in `train_bger.py` to the Owl-formatted directories you actually use.
 
 ```text
 data/
-  bcm_coco30000/
-  cm_coco30000/
-  sp_coco30000/
+  tampCOCO/
   nist16/
   columbia/
   coverage/
   casia_v1/
 ```
 
-Each folder uses the [Owl](https://github.com/aikwen/owl) v1 layout: `tp/` contains images, `gt/` contains masks, and `<folder-name>.json` lists matching filenames. For example, `data/casia_v1/casia_v1.json` can contain:
+Each dataset directory referenced in the script uses the [Owl](https://github.com/aikwen/owl) v1 layout: `tp/` contains images, `gt/` contains masks, and `<folder-name>.json` lists matching filenames. For example, `data/casia_v1/casia_v1.json` can contain:
 
 ```json
 [
